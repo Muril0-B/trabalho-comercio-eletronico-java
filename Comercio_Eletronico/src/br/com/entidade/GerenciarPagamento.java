@@ -1,4 +1,4 @@
-apackage br.com.entidade;
+package br.com.entidade;
 
 import br.com.controle.Pagamento;
 import java.sql.PreparedStatement;
