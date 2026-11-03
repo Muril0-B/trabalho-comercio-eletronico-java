@@ -1,4 +1,4 @@
-package br.com.entidade;
+apackage br.com.entidade;
 
 import br.com.controle.Pagamento;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
-public class ManterPagamento extends DAO {
+public class GerenciarPagamento extends DAO {
 
     public void inserir(Pagamento p) throws Exception {
         abrirBanco();
