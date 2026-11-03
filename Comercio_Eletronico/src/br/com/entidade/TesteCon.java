@@ -4,10 +4,11 @@
  */
 package br.com.entidade;
 
-/**
- *
- * @author muril
- */
-public class TesteCon {
-    
+import java.sql.SQLException;
+
+public class TesteCon extends DAO{
+    public static void main(String[] args) throws SQLException {
+        DAO cx = new DAO();
+        cx.abrirBanco();
+    }
 }
