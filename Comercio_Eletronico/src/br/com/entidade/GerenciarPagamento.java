@@ -21,6 +21,20 @@ public class GerenciarPagamento extends DAO {
         fecharBanco();
     }
 
+    public void alterar(Pagamento p) throws Exception {
+        abrirBanco();
+        String query = "UPDATE pagamento SET id_pedido = ?, valor_pago = ?, forma_pagamento = ?, status_pagamento = ? WHERE id_pagamento = ?";
+        pst = con.prepareStatement(query);
+        pst.setInt(1, p.getIdPedido());
+        pst.setDouble(2, p.getValorPago());
+        pst.setString(3, p.getFormaPagamento());
+        pst.setString(4, p.getStatusPagamento());
+        pst.setInt(5, p.getIdPagamento());
+        pst.execute();
+        JOptionPane.showMessageDialog(null, "Pagamento atualizado com sucesso!");
+        fecharBanco();
+    }
+
     public void deletarPagamento(Pagamento p) throws Exception {
         abrirBanco();
         String query = "DELETE FROM pagamento WHERE id_pagamento = ?";
