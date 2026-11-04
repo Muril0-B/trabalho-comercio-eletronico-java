@@ -1,19 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package br.com.controle;
 
-/**
- *
- * @author muril
- */
 public class Cliente {
-   private String cpf_cnpj; /* na tela deve ser escolhido o meio de cadastro */
-   private String nome;
-   private String email;
-   private String endereco; /* o endereço deve ser completo */
-   private String telefone; /* deve conter o DDD */
+
+    private int id_cliente;
+    private String cpf_cnpj;
+    private String nome;
+    private String email;
+    private String endereco;
+    private String telefone;
+
+    public int getId_cliente() {
+        return id_cliente;
+    }
+
+    public void setId_cliente(int id_cliente) {
+        this.id_cliente = id_cliente;
+    }
 
     public String getCpf_cnpj() {
         return cpf_cnpj;
@@ -54,7 +57,4 @@ public class Cliente {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-   
-   
-   
 }
