@@ -13,6 +13,7 @@ public class Produto {
     private String descricao;
     private int estoque;
     private double preco;
+    private int id_produto;
 
     public String getNome() {
         return nome;
@@ -44,6 +45,14 @@ public class Produto {
 
     public void setPreco(double preco) {
         this.preco = preco;
+    }
+
+    public int getId_produto() {
+        return id_produto;
+    }
+
+    public void setId_produto(int id_produto) {
+        this.id_produto = id_produto;
     }
     
     

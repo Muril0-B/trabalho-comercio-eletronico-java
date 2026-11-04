@@ -13,6 +13,7 @@ public class Vendendor {
    private String email;
    private String telefone; /* deve conter o DDD */
    private double comissao; /* deve ser apresentada em & */
+   private int id_vendedor;
 
     public String getNome() {
         return nome;
@@ -44,6 +45,14 @@ public class Vendendor {
 
     public void setComissao(double comissao) {
         this.comissao = comissao;
+    }
+
+    public int getId_vendedor() {
+        return id_vendedor;
+    }
+
+    public void setId_vendedor(int id_vendedor) {
+        this.id_vendedor = id_vendedor;
     }
    
    
