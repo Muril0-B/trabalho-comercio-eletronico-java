@@ -38,10 +38,10 @@ public class GerenciarCliente extends DAO {
         try {
             abrirBanco();
 
-            String query = "DELETE FROM cliente WHERE cpf_cnpj = ?";
+            String query = "DELETE FROM cliente WHERE id_cliente = ?";
             pst = con.prepareStatement(query);
 
-            pst.setString(1, c.getCpf_cnpj());
+            pst.setString(1, String.valueOf(c.getId_cliente()));
             int resultado = pst.executeUpdate();
 
             if (resultado > 0) {
@@ -62,10 +62,10 @@ public class GerenciarCliente extends DAO {
         try {
             abrirBanco();
 
-            String query = "SELECT * FROM cliente WHERE cpf_cnpj = ?";
+            String query = "SELECT * FROM cliente WHERE id_cliente = ?";
             pst = con.prepareStatement(query);
 
-            pst.setString(1, c.getCpf_cnpj());
+            pst.setString(1, String.valueOf(c.getId_cliente()));
 
             ResultSet tr = pst.executeQuery();
 
@@ -126,7 +126,7 @@ public class GerenciarCliente extends DAO {
         try {
             abrirBanco();
 
-            String query = "UPDATE cliente SET nome = ?, email = ?, telefone = ?, endereco = ? WHERE cpf_cnpj = ?";
+            String query = "UPDATE cliente SET nome = ?, email = ?, telefone = ?, endereco = ?, cpf_cnpj = ? WHERE id_cliente = ?";
             pst = con.prepareStatement(query);
 
             pst.setString(1, c.getNome());
@@ -134,6 +134,7 @@ public class GerenciarCliente extends DAO {
             pst.setString(3, c.getTelefone());
             pst.setString(4, c.getEndereco());
             pst.setString(5, c.getCpf_cnpj());
+            pst.setString(6, String.valueOf(c.getId_cliente()));
 
             int resultado = pst.executeUpdate();
 
