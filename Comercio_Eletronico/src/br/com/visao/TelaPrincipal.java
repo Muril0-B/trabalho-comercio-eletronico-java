@@ -28,6 +28,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -56,9 +57,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuItem15 = new javax.swing.JMenuItem();
         jMenuItem16 = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        jMenuItem22 = new javax.swing.JMenuItem();
         jMenuItem21 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("Bem Vindo ao mercadinho do Seu Zé");
 
         jMenu1.setText("Ações");
 
@@ -69,6 +73,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMenuItem1);
 
         jMenuItem2.setText("Listar");
+        jMenuItem2.addActionListener(this::jMenuItem2ActionPerformed);
         jMenu2.add(jMenuItem2);
 
         jMenuItem3.setText("Alterar");
@@ -84,15 +89,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu3.setText("Vendedor");
 
         jMenuItem5.setText("Cadastrar");
+        jMenuItem5.addActionListener(this::jMenuItem5ActionPerformed);
         jMenu3.add(jMenuItem5);
 
         jMenuItem6.setText("Listar");
+        jMenuItem6.addActionListener(this::jMenuItem6ActionPerformed);
         jMenu3.add(jMenuItem6);
 
         jMenuItem7.setText("Alterar");
+        jMenuItem7.addActionListener(this::jMenuItem7ActionPerformed);
         jMenu3.add(jMenuItem7);
 
         jMenuItem8.setText("Remover");
+        jMenuItem8.addActionListener(this::jMenuItem8ActionPerformed);
         jMenu3.add(jMenuItem8);
 
         jMenu1.add(jMenu3);
@@ -100,15 +109,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4.setText("Produto");
 
         jMenuItem9.setText("Adicionar ");
+        jMenuItem9.addActionListener(this::jMenuItem9ActionPerformed);
         jMenu4.add(jMenuItem9);
 
         jMenuItem10.setText("Listar");
+        jMenuItem10.addActionListener(this::jMenuItem10ActionPerformed);
         jMenu4.add(jMenuItem10);
 
         jMenuItem11.setText("Alterar");
+        jMenuItem11.addActionListener(this::jMenuItem11ActionPerformed);
         jMenu4.add(jMenuItem11);
 
         jMenuItem12.setText("Remover");
+        jMenuItem12.addActionListener(this::jMenuItem12ActionPerformed);
         jMenu4.add(jMenuItem12);
 
         jMenu1.add(jMenu4);
@@ -116,15 +129,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu5.setText("Pagamento");
 
         jMenuItem17.setText("Adicionar");
+        jMenuItem17.addActionListener(this::jMenuItem17ActionPerformed);
         jMenu5.add(jMenuItem17);
 
         jMenuItem18.setText("Listar");
+        jMenuItem18.addActionListener(this::jMenuItem18ActionPerformed);
         jMenu5.add(jMenuItem18);
 
         jMenuItem19.setText("Alterar");
+        jMenuItem19.addActionListener(this::jMenuItem19ActionPerformed);
         jMenu5.add(jMenuItem19);
 
         jMenuItem20.setText("Remover");
+        jMenuItem20.addActionListener(this::jMenuItem20ActionPerformed);
         jMenu5.add(jMenuItem20);
 
         jMenu1.add(jMenu5);
@@ -132,19 +149,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu6.setText("Pedido");
 
         jMenuItem13.setText("Adicionar");
+        jMenuItem13.addActionListener(this::jMenuItem13ActionPerformed);
         jMenu6.add(jMenuItem13);
 
         jMenuItem14.setText("Listar");
+        jMenuItem14.addActionListener(this::jMenuItem14ActionPerformed);
         jMenu6.add(jMenuItem14);
 
         jMenuItem15.setText("Alterar");
+        jMenuItem15.addActionListener(this::jMenuItem15ActionPerformed);
         jMenu6.add(jMenuItem15);
 
         jMenuItem16.setText("Remover");
+        jMenuItem16.addActionListener(this::jMenuItem16ActionPerformed);
         jMenu6.add(jMenuItem16);
 
         jMenu1.add(jMenu6);
         jMenu1.add(jSeparator2);
+
+        jMenuItem22.setText("Home");
+        jMenuItem22.addActionListener(this::jMenuItem22ActionPerformed);
+        jMenu1.add(jMenuItem22);
 
         jMenuItem21.setText("Sair");
         jMenuItem21.addActionListener(this::jMenuItem21ActionPerformed);
@@ -158,11 +183,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(92, 92, 92)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(100, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(88, 88, 88)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(146, Short.MAX_VALUE))
         );
 
         pack();
@@ -170,20 +201,156 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
+        ClienteAdicionar ca = new ClienteAdicionar();
+        ca.setVisible(true);
+        this.dispose();
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
+        ClienteAlterar ca = new ClienteAlterar();
+        ca.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
+        ClienteRemover cr = new ClienteRemover();
+        cr.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenuItem21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem21ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenuItem21ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        ClienteListar cl = new ClienteListar();
+        cl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem22ActionPerformed
+        // TODO add your handling code here:
+        TelaPrincipal tp = new TelaPrincipal();
+        tp.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem22ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        // TODO add your handling code here:
+        VendedorAdicionar va = new VendedorAdicionar();
+        va.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        // TODO add your handling code here:
+        VendedorListar vl = new VendedorListar();
+        vl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        // TODO add your handling code here:
+        VendedorAlterar va = new VendedorAlterar();
+        va.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        // TODO add your handling code here:
+        VendedorRemover vr = new VendedorRemover();
+        vr.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
+
+    private void jMenuItem17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem17ActionPerformed
+        // TODO add your handling code here:
+        PagamentoAdicionar pa = new PagamentoAdicionar();
+        pa.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem17ActionPerformed
+
+    private void jMenuItem19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem19ActionPerformed
+        // TODO add your handling code here:
+        PagamentoAlterar pa = new PagamentoAlterar();
+        pa.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem19ActionPerformed
+
+    private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
+        // TODO add your handling code here:
+        PagamentoRemover pr = new PagamentoRemover();
+        pr.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem20ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        ProdutoAdicionar pa = new ProdutoAdicionar();
+        pa.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        ProdutoListar pl = new ProdutoListar();
+        pl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        ProdutoAlterar pa = new ProdutoAlterar();
+        pa.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        ProdutoRemover pr = new ProdutoRemover();
+        pr.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem18ActionPerformed
+        // TODO add your handling code here:
+        PagamentoListar pl = new PagamentoListar();
+        pl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem18ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        // TODO add your handling code here:
+        PedidoAdicionar pa = new PedidoAdicionar();
+        pa.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
+    private void jMenuItem14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem14ActionPerformed
+        // TODO add your handling code here:
+        PedidoListar pl = new PedidoListar();
+        pl.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem14ActionPerformed
+
+    private void jMenuItem15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem15ActionPerformed
+        // TODO add your handling code here:
+        PedidoAlterar pa = new PedidoAlterar();
+        pa.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem15ActionPerformed
+
+    private void jMenuItem16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem16ActionPerformed
+        // TODO add your handling code here:
+        PedidoRemover pr = new PedidoRemover();
+        pr.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jMenuItem16ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +378,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -232,6 +400,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem20;
     private javax.swing.JMenuItem jMenuItem21;
+    private javax.swing.JMenuItem jMenuItem22;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
