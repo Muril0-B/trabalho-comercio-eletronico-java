@@ -250,13 +250,273 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTIdPedido" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTIdCliente" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTIdVendedor" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTValorPedido" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTIdItem" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTIdPedidoItem" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTIdProduto" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTQuantidade" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTPrecoUnitario" min="-2" pref="71" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jBPesquisarPedido" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
+                                      <Component id="jTStatus" min="-2" pref="71" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <Component id="jBAlterarPedido" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+                      <Component id="jBPesquisarItem" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jBAlterarItem" min="-2" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="71" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTIdPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTIdCliente" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTIdVendedor" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTValorPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jBPesquisarPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBAlterarPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTIdItem" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTIdPedidoItem" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTIdProduto" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTQuantidade" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTPrecoUnitario" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jBPesquisarItem" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBAlterarItem" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="21" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Status do Pedido:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Valor total do pedido:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID do vendedor:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID do pedido:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID do Cliente:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Altera&#xe7;&#xe3;o do Pedido"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTIdPedido">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTIdCliente">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTIdVendedor">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTValorPedido">
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTStatus">
+    </Component>
+    <Component class="javax.swing.JButton" name="jBPesquisarPedido">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pesquisar Pedido"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBPesquisarPedidoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBAlterarPedido">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alterar Pedido"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAlterarPedidoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Altera&#xe7;&#xe3;o dos Itens do Pedido"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID do item:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTIdItem">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel9">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID do pedido:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTIdPedidoItem">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel10">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID do produto:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTIdProduto">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel11">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Quantidade do produto"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTQuantidade">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel12">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pre&#xe7;o do produto:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTPrecoUnitario">
+    </Component>
+    <Component class="javax.swing.JButton" name="jBAlterarItem">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Alterar Item"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBAlterarItemActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jBPesquisarItem">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Pesquisar Item"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBPesquisarItemActionPerformed"/>
+      </Events>
+    </Component>
+  </SubComponents>
 </Form>

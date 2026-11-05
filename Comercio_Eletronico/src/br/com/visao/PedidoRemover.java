@@ -4,6 +4,11 @@
  */
 package br.com.visao;
 
+import br.com.controle.ItemPedido;
+import br.com.controle.Pedido;
+import br.com.entidade.GerenciarPedido;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author muril
@@ -28,6 +33,16 @@ public class PedidoRemover extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel7 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTIdPedido = new javax.swing.JTextField();
+        jTDeletarPedido = new javax.swing.JToggleButton();
+        jTLimparPedido = new javax.swing.JToggleButton();
+        jTDeletarItem = new javax.swing.JToggleButton();
+        jTIdItem = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jTLimparItem = new javax.swing.JToggleButton();
+        jLabel8 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -60,6 +75,32 @@ public class PedidoRemover extends javax.swing.JFrame {
         jMenuItem21 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setText("Remover Pedidos");
+
+        jLabel1.setText("Digite o ID do pedido:");
+
+        jTIdPedido.addActionListener(this::jTIdPedidoActionPerformed);
+
+        jTDeletarPedido.setText("Deletar Pedido");
+        jTDeletarPedido.addActionListener(this::jTDeletarPedidoActionPerformed);
+
+        jTLimparPedido.setText("Limpar Pedido");
+        jTLimparPedido.addActionListener(this::jTLimparPedidoActionPerformed);
+
+        jTDeletarItem.setText("Deletar Item");
+        jTDeletarItem.addActionListener(this::jTDeletarItemActionPerformed);
+
+        jTIdItem.addActionListener(this::jTIdItemActionPerformed);
+
+        jLabel2.setText("Digite o ID do item:");
+
+        jTLimparItem.setText("Limpar Item");
+        jTLimparItem.addActionListener(this::jTLimparItemActionPerformed);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("Remover Itens");
 
         jMenu1.setText("Ações");
 
@@ -180,11 +221,56 @@ public class PedidoRemover extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTIdItem, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTDeletarPedido)
+                                .addGap(62, 62, 62)
+                                .addComponent(jTLimparPedido))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTDeletarItem)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTLimparItem)))))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTDeletarPedido)
+                    .addComponent(jTLimparPedido))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTIdItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTDeletarItem)
+                    .addComponent(jTLimparItem))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -343,6 +429,58 @@ public class PedidoRemover extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem21ActionPerformed
 
+    private void jTIdPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIdPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTIdPedidoActionPerformed
+
+    private void jTDeletarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTDeletarPedidoActionPerformed
+        // TODO add your handling code here:
+        try{
+            Pedido p = new Pedido();
+            GerenciarPedido gp = new GerenciarPedido();
+            p.setId_pedido(Integer.valueOf(jTIdPedido.getText()));
+            gp.deletar(p);
+            jTIdPedido.setText("");
+            jTIdPedido.requestFocus();
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Erro de: "
+                + e.getMessage());
+        }
+    }//GEN-LAST:event_jTDeletarPedidoActionPerformed
+
+    private void jTLimparPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTLimparPedidoActionPerformed
+        // TODO add your handling code here:
+        jTIdPedido.setText("");
+        jTIdPedido.requestFocus();
+    }//GEN-LAST:event_jTLimparPedidoActionPerformed
+
+    private void jTDeletarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTDeletarItemActionPerformed
+        // TODO add your handling code here:
+        try{
+            ItemPedido ip = new ItemPedido();
+            GerenciarPedido gc = new GerenciarPedido();
+            ip.setId_item(Integer.valueOf(jTIdItem.getText()));
+            gc.deletarItem(ip);
+            jTIdItem.setText("");
+            jTIdItem.requestFocus();
+        }
+        catch (Exception e) {
+            JOptionPane.showMessageDialog(this,"Erro de: "
+                + e.getMessage());
+        }
+    }//GEN-LAST:event_jTDeletarItemActionPerformed
+
+    private void jTIdItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIdItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTIdItemActionPerformed
+
+    private void jTLimparItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTLimparItemActionPerformed
+        // TODO add your handling code here:
+        jTIdItem.setText("");
+        jTIdItem.requestFocus();
+    }//GEN-LAST:event_jTLimparItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,6 +507,10 @@ public class PedidoRemover extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -399,5 +541,11 @@ public class PedidoRemover extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JToggleButton jTDeletarItem;
+    private javax.swing.JToggleButton jTDeletarPedido;
+    private javax.swing.JTextField jTIdItem;
+    private javax.swing.JTextField jTIdPedido;
+    private javax.swing.JToggleButton jTLimparItem;
+    private javax.swing.JToggleButton jTLimparPedido;
     // End of variables declaration//GEN-END:variables
 }

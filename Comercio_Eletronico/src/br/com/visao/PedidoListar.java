@@ -4,6 +4,9 @@
  */
 package br.com.visao;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author muril
@@ -28,6 +31,19 @@ public class PedidoListar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTPedido = new javax.swing.JTable();
+        jTPesquisar = new javax.swing.JToggleButton();
+        jTIdPedido = new javax.swing.JTextField();
+        jRIdPedido = new javax.swing.JRadioButton();
+        jTextField2 = new javax.swing.JTextField();
+        jRNomeCliente = new javax.swing.JRadioButton();
+        jTextField3 = new javax.swing.JTextField();
+        jRNomeVendedor = new javax.swing.JRadioButton();
+        jTData1 = new javax.swing.JTextField();
+        jTData2 = new javax.swing.JTextField();
+        jRData = new javax.swing.JRadioButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -60,6 +76,34 @@ public class PedidoListar extends javax.swing.JFrame {
         jMenuItem21 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTPedido.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nome do Cliente", "Nome do Vendedor", "Data do pedido", "Valor total do pedido", "Nome do produto", "Quantidade do produto", "Preço do produto"
+            }
+        ));
+        jScrollPane1.setViewportView(jTPedido);
+
+        jTPesquisar.setText("Pesquisar Pedido");
+        jTPesquisar.addActionListener(this::jTPesquisarActionPerformed);
+
+        buttonGroup1.add(jRIdPedido);
+        jRIdPedido.setText("Id do Pedido");
+        jRIdPedido.addActionListener(this::jRIdPedidoActionPerformed);
+
+        jTextField2.addActionListener(this::jTextField2ActionPerformed);
+
+        buttonGroup1.add(jRNomeCliente);
+        jRNomeCliente.setText("Nome do Cliente");
+
+        buttonGroup1.add(jRNomeVendedor);
+        jRNomeVendedor.setText("Nome do Vendedor");
+
+        buttonGroup1.add(jRData);
+        jRData.setText("Período");
 
         jMenu1.setText("Ações");
 
@@ -180,11 +224,59 @@ public class PedidoListar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 988, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTPesquisar)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRNomeCliente))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRNomeVendedor))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jTData1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTData2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jRData, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRIdPedido))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRNomeCliente))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRNomeVendedor))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTData1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTData2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jRData))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jTPesquisar)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -343,6 +435,28 @@ public class PedidoListar extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem21ActionPerformed
 
+    private void jTPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTPesquisarActionPerformed
+        // TODO add your handling code here:
+        if (jRIdPedido.isSelected()){
+            DefaultTableModel pesquisaPorID = (DefaultTableModel) jTPedido.getModel();
+            pesquisaPorID.addRow(new Object[]{jTIdPedido.getText()});
+        } else if (jRNomeCliente.isSelected()){
+        } else if (jRNomeVendedor.isSelected()){
+        } else if (jRData.isSelected()){
+        } else {
+        JOptionPane.showMessageDialog(null, "Nenhuma Opção escolhida!");
+        }
+        
+    }//GEN-LAST:event_jTPesquisarActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jRIdPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRIdPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRIdPedidoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,6 +483,7 @@ public class PedidoListar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -398,6 +513,18 @@ public class PedidoListar extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
+    private javax.swing.JRadioButton jRData;
+    private javax.swing.JRadioButton jRIdPedido;
+    private javax.swing.JRadioButton jRNomeCliente;
+    private javax.swing.JRadioButton jRNomeVendedor;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JTextField jTData1;
+    private javax.swing.JTextField jTData2;
+    private javax.swing.JTextField jTIdPedido;
+    private javax.swing.JTable jTPedido;
+    private javax.swing.JToggleButton jTPesquisar;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

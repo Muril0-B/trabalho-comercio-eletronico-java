@@ -1,4 +1,3 @@
-
 package br.com.entidade;
 
 import br.com.controle.Cliente;
@@ -8,24 +7,35 @@ import javax.swing.JOptionPane;
 
 public class GerenciarCliente extends DAO {
 
-    
     public void inserir(Cliente c) throws Exception {
         try {
             abrirBanco();
 
-            String query = "INSERT INTO cliente (nome, email, telefone, cpf_cnpj, endereco) VALUES (?, ?, ?, ?, ?)";
-            pst = con.prepareStatement(query);
+            String existe = "SELECT email FROM cliente WHERE email = ?";
+            pst = con.prepareStatement(existe);
+            pst.setString(1, c.getEmail());
 
-            pst.setString(1, c.getNome());
-            pst.setString(2, c.getEmail());
-            pst.setString(3, c.getTelefone());
-            pst.setString(4, c.getCpf_cnpj());
-            pst.setString(5, c.getEndereco());
+            ResultSet tr = pst.executeQuery();
 
-            pst.execute();
+            if (tr.next()) {
+                JOptionPane.showMessageDialog(null, "E-mail já cadastrado!");
+            } else {
 
-            JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+                String query = "INSERT INTO cliente (nome, email, telefone, cpf_cnpj, endereco) VALUES (?, ?, ?, ?, ?)";
+                pst = con.prepareStatement(query);
 
+                pst.setString(1, c.getNome());
+                pst.setString(2, c.getEmail());
+                pst.setString(3, c.getTelefone());
+                pst.setString(4, c.getCpf_cnpj());
+                pst.setString(5, c.getEndereco());
+
+                pst.execute();
+
+                JOptionPane.showMessageDialog(null, "Cliente cadastrado com sucesso!");
+            }
+
+            tr.close();
             fecharBanco();
 
         } catch (Exception e) {
@@ -33,7 +43,6 @@ public class GerenciarCliente extends DAO {
         }
     }
 
-   
     public void deletarCliente(Cliente c) throws Exception {
         try {
             abrirBanco();
@@ -57,7 +66,6 @@ public class GerenciarCliente extends DAO {
         }
     }
 
-    
     public void pesquisarRegistro(Cliente c) throws Exception {
         try {
             abrirBanco();
@@ -87,7 +95,6 @@ public class GerenciarCliente extends DAO {
         }
     }
 
-    
     public ArrayList<Cliente> pesquisarTudo() throws Exception {
         ArrayList<Cliente> clientes = new ArrayList<>();
 
@@ -121,7 +128,6 @@ public class GerenciarCliente extends DAO {
         return clientes;
     }
 
-   
     public void atualizarCliente(Cliente c) throws Exception {
         try {
             abrirBanco();

@@ -4,6 +4,11 @@
  */
 package br.com.visao;
 
+import br.com.controle.ItemPedido;
+import br.com.controle.Pedido;
+import br.com.entidade.GerenciarPedido;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author muril
@@ -28,6 +33,32 @@ public class PedidoAlterar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jTIdPedido = new javax.swing.JTextField();
+        jTIdCliente = new javax.swing.JTextField();
+        jTIdVendedor = new javax.swing.JTextField();
+        jTValorPedido = new javax.swing.JTextField();
+        jTStatus = new javax.swing.JTextField();
+        jBPesquisarPedido = new javax.swing.JButton();
+        jBAlterarPedido = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTIdItem = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jTIdPedidoItem = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        jTIdProduto = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jTQuantidade = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTPrecoUnitario = new javax.swing.JTextField();
+        jBAlterarItem = new javax.swing.JButton();
+        jBPesquisarItem = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -60,6 +91,44 @@ public class PedidoAlterar extends javax.swing.JFrame {
         jMenuItem21 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel4.setText("Status do Pedido:");
+
+        jLabel3.setText("Valor total do pedido:");
+
+        jLabel2.setText("ID do vendedor:");
+
+        jLabel1.setText("ID do pedido:");
+
+        jLabel5.setText("ID do Cliente:");
+
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel7.setText("Alteração do Pedido");
+
+        jBPesquisarPedido.setText("Pesquisar Pedido");
+        jBPesquisarPedido.addActionListener(this::jBPesquisarPedidoActionPerformed);
+
+        jBAlterarPedido.setText("Alterar Pedido");
+        jBAlterarPedido.addActionListener(this::jBAlterarPedidoActionPerformed);
+
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel8.setText("Alteração dos Itens do Pedido");
+
+        jLabel6.setText("ID do item:");
+
+        jLabel9.setText("ID do pedido:");
+
+        jLabel10.setText("ID do produto:");
+
+        jLabel11.setText("Quantidade do produto");
+
+        jLabel12.setText("Preço do produto:");
+
+        jBAlterarItem.setText("Alterar Item");
+        jBAlterarItem.addActionListener(this::jBAlterarItemActionPerformed);
+
+        jBPesquisarItem.setText("Pesquisar Item");
+        jBPesquisarItem.addActionListener(this::jBPesquisarItemActionPerformed);
 
         jMenu1.setText("Ações");
 
@@ -180,11 +249,121 @@ public class PedidoAlterar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTIdVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTValorPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTIdItem, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTIdPedidoItem, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTIdProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel11)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel12)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTPrecoUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jBPesquisarPedido)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(47, 47, 47)
+                                .addComponent(jBAlterarPedido))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jBPesquisarItem)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jBAlterarItem)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jTIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTIdVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTValorPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBPesquisarPedido)
+                    .addComponent(jBAlterarPedido))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTIdItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jTIdPedidoItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTIdProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11)
+                    .addComponent(jTQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12)
+                    .addComponent(jTPrecoUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBPesquisarItem)
+                    .addComponent(jBAlterarItem))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         pack();
@@ -343,6 +522,86 @@ public class PedidoAlterar extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem21ActionPerformed
 
+    private void jBPesquisarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisarItemActionPerformed
+        // TODO add your handling code here:
+        try{
+            ItemPedido ip = new ItemPedido();
+            GerenciarPedido gp = new GerenciarPedido();
+            ip.setId_item(Integer.valueOf(jTIdItem.getText()));
+            gp.pesquisarItemPedido(ip);
+            jTIdPedidoItem.setText(String.valueOf(ip.getId_pedido()));
+            jTIdProduto.setText(String.valueOf(ip.getId_produto()));
+            jTQuantidade.setText(String.valueOf(ip.getQuantidade()));
+            jTPrecoUnitario.setText(String.valueOf(ip.getPreco_unitario()));
+            jTIdItem.setEditable(false);
+        }
+        catch (Exception e){
+            System.out.println("Erro " + e.getMessage());
+        }
+
+    }//GEN-LAST:event_jBPesquisarItemActionPerformed
+
+    private void jBAlterarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAlterarPedidoActionPerformed
+        // TODO add your handling code here:
+        try{
+            Pedido p = new Pedido();
+            GerenciarPedido gp = new GerenciarPedido();
+            p.setId_pedido(Integer.valueOf(jTIdPedido.getText()));
+            p.setId_cliente(Integer.valueOf(jTIdCliente.getText()));
+            p.setId_vendedor(Integer.valueOf(jTIdVendedor.getText()));
+            p.setValor_total(Double.valueOf(jTValorPedido.getText()));
+            p.setStatus_pedido(jTStatus.getText());
+            gp.alterar(p);
+
+            jTIdCliente.setText("");
+            jTIdVendedor.setText("");
+            jTValorPedido.setText("");
+            jTStatus.setText("");
+            jTIdPedido.requestFocus();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this,"Erro de : " + e.getMessage());
+        }
+    }//GEN-LAST:event_jBAlterarPedidoActionPerformed
+
+    private void jBAlterarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAlterarItemActionPerformed
+        // TODO add your handling code here:
+        try{
+            ItemPedido ip = new ItemPedido();
+            GerenciarPedido gp = new GerenciarPedido();
+            ip.setId_item(Integer.valueOf(jTIdItem.getText()));
+            ip.setId_pedido(Integer.valueOf(jTIdPedidoItem.getText()));
+            ip.setId_produto(Integer.valueOf(jTIdProduto.getText()));
+            ip.setQuantidade(Integer.valueOf(jTQuantidade.getText()));
+            ip.setPreco_unitario(Double.valueOf(jTPrecoUnitario.getText()));
+            gp.alterarItens(ip);
+
+            jTIdPedidoItem.setText("");
+            jTIdProduto.setText("");
+            jTQuantidade.setText("");
+            jTPrecoUnitario.setText("");
+            jTIdItem.requestFocus();
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(this,"Erro de : " + e.getMessage());
+        }
+    }//GEN-LAST:event_jBAlterarItemActionPerformed
+
+    private void jBPesquisarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPesquisarPedidoActionPerformed
+        // TODO add your handling code here:
+        try{
+            Pedido p = new Pedido();
+            GerenciarPedido gp = new GerenciarPedido();
+            p.setId_pedido(Integer.valueOf(jTIdPedido.getText()));
+            gp.pesquisarPedido(p);
+            jTIdCliente.setText(String.valueOf(p.getId_cliente()));
+            jTIdVendedor.setText(String.valueOf(p.getId_vendedor()));
+            jTValorPedido.setText(String.valueOf(p.getValor_total()));
+            jTStatus.setText(p.getStatus_pedido());
+        }
+        catch (Exception e){
+            System.out.println("Erro " + e.getMessage());
+        }
+    }//GEN-LAST:event_jBPesquisarPedidoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,6 +628,22 @@ public class PedidoAlterar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBAlterarItem;
+    private javax.swing.JButton jBAlterarPedido;
+    private javax.swing.JButton jBPesquisarItem;
+    private javax.swing.JButton jBPesquisarPedido;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -399,5 +674,15 @@ public class PedidoAlterar extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JTextField jTIdCliente;
+    private javax.swing.JTextField jTIdItem;
+    private javax.swing.JTextField jTIdPedido;
+    private javax.swing.JTextField jTIdPedidoItem;
+    private javax.swing.JTextField jTIdProduto;
+    private javax.swing.JTextField jTIdVendedor;
+    private javax.swing.JTextField jTPrecoUnitario;
+    private javax.swing.JTextField jTQuantidade;
+    private javax.swing.JTextField jTStatus;
+    private javax.swing.JTextField jTValorPedido;
     // End of variables declaration//GEN-END:variables
 }

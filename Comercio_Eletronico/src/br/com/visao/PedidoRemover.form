@@ -250,13 +250,141 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="400" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTIdPedido" min="-2" pref="71" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jTIdItem" min="-2" pref="71" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace min="33" pref="33" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jTDeletarPedido" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
+                              <Component id="jTLimparPedido" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jTDeletarItem" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jTLimparItem" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace pref="84" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="277" max="32767" attributes="0"/>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTIdPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTDeletarPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTLimparPedido" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTIdItem" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jTDeletarItem" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTLimparItem" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
   </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel7">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Remover Pedidos"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Digite o ID do pedido:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTIdPedido">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTIdPedidoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="jTDeletarPedido">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deletar Pedido"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTDeletarPedidoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="jTLimparPedido">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar Pedido"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTLimparPedidoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="jTDeletarItem">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Deletar Item"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTDeletarItemActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTIdItem">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTIdItemActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Digite o ID do item:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JToggleButton" name="jTLimparItem">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Limpar Item"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTLimparItemActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel8">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Remover Itens"/>
+      </Properties>
+    </Component>
+  </SubComponents>
 </Form>

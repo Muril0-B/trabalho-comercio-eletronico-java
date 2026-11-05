@@ -4,12 +4,18 @@
  */
 package br.com.visao;
 
+import br.com.controle.ItemPedido;
+import br.com.controle.Pedido;
+import br.com.entidade.GerenciarPedido;
+
 /**
  *
  * @author muril
  */
 public class PedidoAdicionar extends javax.swing.JFrame {
-    
+    Pedido p = new Pedido();
+    GerenciarPedido gp = new GerenciarPedido();
+    ItemPedido ip = new ItemPedido();
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(PedidoAdicionar.class.getName());
 
     /**
@@ -28,6 +34,26 @@ public class PedidoAdicionar extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jBCadPedido = new javax.swing.JButton();
+        jBCadItens = new javax.swing.JButton();
+        jTIdCliente = new javax.swing.JTextField();
+        jTIdVendedor = new javax.swing.JTextField();
+        jTValorPedido = new javax.swing.JTextField();
+        jTStatusPedido = new javax.swing.JTextField();
+        jTIdPedido = new javax.swing.JTextField();
+        jTIdProduto = new javax.swing.JTextField();
+        jTQuantidade = new javax.swing.JTextField();
+        jTValorItem = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -60,6 +86,50 @@ public class PedidoAdicionar extends javax.swing.JFrame {
         jMenuItem21 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setText("ID do cliente que realizou o pedido: ");
+
+        jLabel2.setText("ID do vendedor que realizou o pedido: ");
+
+        jLabel3.setText("Valor total do pedido: ");
+
+        jLabel4.setText("Status do pedido: ");
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel5.setText("Cadastro dos itens do pedido");
+
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel6.setText("Cadastro do pedido");
+
+        jLabel7.setText("ID do pedido a adicionar itens: ");
+
+        jLabel8.setText("ID do produto a ser adicionado: ");
+
+        jLabel9.setText("Quantidade do produto:");
+
+        jLabel10.setText("Valor do produto:");
+
+        jBCadPedido.setText("Cadastrar Pedido");
+        jBCadPedido.addActionListener(this::jBCadPedidoActionPerformed);
+
+        jBCadItens.setText("Cadastrar Itens");
+        jBCadItens.addActionListener(this::jBCadItensActionPerformed);
+
+        jTIdCliente.addActionListener(this::jTIdClienteActionPerformed);
+
+        jTIdVendedor.addActionListener(this::jTIdVendedorActionPerformed);
+
+        jTValorPedido.addActionListener(this::jTValorPedidoActionPerformed);
+
+        jTStatusPedido.addActionListener(this::jTStatusPedidoActionPerformed);
+
+        jTIdPedido.addActionListener(this::jTIdPedidoActionPerformed);
+
+        jTIdProduto.addActionListener(this::jTIdProdutoActionPerformed);
+
+        jTQuantidade.addActionListener(this::jTQuantidadeActionPerformed);
+
+        jTValorItem.addActionListener(this::jTValorItemActionPerformed);
 
         jMenu1.setText("Ações");
 
@@ -180,11 +250,95 @@ public class PedidoAdicionar extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(144, 144, 144)
+                .addComponent(jBCadPedido)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTIdVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTValorPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTValorItem, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTStatusPedido, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jBCadItens)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel8)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTIdProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(0, 108, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 277, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel6)
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTIdCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jTIdVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTValorPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jTStatusPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jBCadPedido)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(jTIdPedido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jTIdProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(jTQuantidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jTValorItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jBCadItens)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -343,6 +497,64 @@ public class PedidoAdicionar extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuItem21ActionPerformed
 
+    private void jBCadPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadPedidoActionPerformed
+        // TODO add your handling code here:
+        p.setId_cliente(Integer.valueOf(jTIdCliente.getText()));
+        p.setId_vendedor(Integer.valueOf(jTIdVendedor.getText()));
+        p.setValor_total(Double.valueOf(jTValorPedido.getText()));
+        p.setStatus_pedido(jTStatusPedido.getText());
+        try {
+            gp.inserir(p);
+        } catch (Exception ex) {
+            System.getLogger(ClienteAdicionar.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+    }//GEN-LAST:event_jBCadPedidoActionPerformed
+
+    private void jBCadItensActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCadItensActionPerformed
+        // TODO add your handling code here:
+        ip.setId_pedido(Integer.valueOf(jTIdPedido.getText()));
+        ip.setId_produto(Integer.valueOf(jTIdProduto.getText()));
+        ip.setQuantidade(Integer.valueOf(jTQuantidade.getText()));
+        ip.setPreco_unitario(Double.valueOf(jTValorItem.getText()));
+        try {
+            gp.inserir(p);
+        } catch (Exception ex) {
+            System.getLogger(ClienteAdicionar.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
+        }
+    }//GEN-LAST:event_jBCadItensActionPerformed
+
+    private void jTIdClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIdClienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTIdClienteActionPerformed
+
+    private void jTIdVendedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIdVendedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTIdVendedorActionPerformed
+
+    private void jTValorPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTValorPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTValorPedidoActionPerformed
+
+    private void jTStatusPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTStatusPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTStatusPedidoActionPerformed
+
+    private void jTIdPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIdPedidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTIdPedidoActionPerformed
+
+    private void jTIdProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTIdProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTIdProdutoActionPerformed
+
+    private void jTQuantidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTQuantidadeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTQuantidadeActionPerformed
+
+    private void jTValorItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTValorItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTValorItemActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -369,6 +581,18 @@ public class PedidoAdicionar extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBCadItens;
+    private javax.swing.JButton jBCadPedido;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -399,5 +623,13 @@ public class PedidoAdicionar extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JPopupMenu.Separator jSeparator2;
+    private javax.swing.JTextField jTIdCliente;
+    private javax.swing.JTextField jTIdPedido;
+    private javax.swing.JTextField jTIdProduto;
+    private javax.swing.JTextField jTIdVendedor;
+    private javax.swing.JTextField jTQuantidade;
+    private javax.swing.JTextField jTStatusPedido;
+    private javax.swing.JTextField jTValorItem;
+    private javax.swing.JTextField jTValorPedido;
     // End of variables declaration//GEN-END:variables
 }
