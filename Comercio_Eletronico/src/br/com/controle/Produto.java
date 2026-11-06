@@ -46,6 +46,10 @@ public class Produto {
     public void setId_produto(int id_produto) {
         this.id_produto = id_produto;
     }
+
+    public void setIdProduto(Integer valueOf) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     
 }

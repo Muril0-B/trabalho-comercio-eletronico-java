@@ -34,7 +34,7 @@ public class GerenciarPedido extends DAO {
         }
     }
 
-    public void inserirItens(ItemPedido ip, Produto pr) throws Exception {
+    public void inserirItens(ItemPedido ip) throws Exception {
         try {
             abrirBanco();
 
@@ -84,7 +84,7 @@ public class GerenciarPedido extends DAO {
     }
     public void deletar(Pedido p) throws Exception {
         abrirBanco();
-        String query = "DELETE FROM pedido WHERE pedido = ?";
+        String query = "DELETE FROM pedido WHERE id_pedido = ?";
         pst = con.prepareStatement(query);
         pst.setInt(1, p.getId_pedido());
         pst.execute();
@@ -154,138 +154,169 @@ public class GerenciarPedido extends DAO {
             System.out.println("Erro: " + e.getMessage());
         }
     }
-    public ArrayList<ItemPedido> pesquisarId(Pedido p) throws Exception {
-        ArrayList<ItemPedido> pedidos = new ArrayList<ItemPedido>();
+    public ArrayList<ItemPedido> pesquisarId(Pedido pedido) throws Exception {
+        ArrayList<ItemPedido> lista = new ArrayList<>();
         try {
             abrirBanco();
-            String query = "SELECT * FROM pedido p INNER JOIN cliente c ON p.id_cliente = c.id_cliente INNER JOIN vendedor v ON p.id_vendedor = v.id_vendedor INNER JOIN item_pedido ip ON p.id_pedido = ip.id_pedido INNER JOIN produto pr ON ip.id_produto = pr.id_produto WHERE p.id_pedido = ? ORDER BY p.id_pedido, pr.nome";
+            String query = "SELECT p.id_pedido, p.data_pedido, p.valor_total, p.status_pedido, c.nome AS nome_cliente, v.nome AS nome_vendedor, pr.nome AS nome_produto, ip.quantidade, ip.preco_unitario FROM pedido p INNER JOIN cliente c ON p.id_cliente = c.id_cliente INNER JOIN vendedor v ON p.id_vendedor = v.id_vendedor INNER JOIN item_pedido ip ON p.id_pedido = ip.id_pedido INNER JOIN produto pr ON ip.id_produto = pr.id_produto WHERE p.id_pedido = ? ORDER BY p.id_pedido, pr.nome";
             pst = con.prepareStatement(query);
-            pst.setInt(1, p.getId_pedido());
+            pst.setInt(1, pedido.getId_pedido());
             ResultSet tr = pst.executeQuery();
                 while (tr.next()){
-                    ItemPedido pe = new ItemPedido();
-                    pe.setNome(tr.getString("c.nome"));
-                    pe.setNome(tr.getString("v.nome"));
-                    pe.setData_pedido(tr.getString("p.data_pedido"));
-                    pe.setValor_total(tr.getDouble("p.valor_total"));
-                    pe.setStatus_pedido(tr.getString("p.status_pedido"));
-                    pe.setNome(tr.getString("pr.nome"));
-                    pe.setQuantidade(tr.getInt("ip.quantidade"));
-                    pe.setPreco_unitario(tr.getDouble("ip.preco_unitario"));
-                    pedidos.add(pe);
-                } if(pedidos.isEmpty()){
+                    Cliente c = new Cliente();
+                    c.setNome(tr.getString("nome_cliente"));
+                    Vendedor v = new Vendedor();
+                    v.setNome(tr.getString("nome_vendedor"));
+                    ItemPedido ip = new ItemPedido();
+                    ip.setNome(tr.getString("nome_produto"));
+                    ip.setId_pedido(tr.getInt("id_pedido"));
+                    ip.setData_pedido(tr.getString("data_pedido"));
+                    ip.setValor_total(tr.getDouble("valor_total"));
+                    ip.setStatus_pedido(tr.getString("status_pedido"));
+                    ip.setCliente(c);
+                    ip.setVendedor(v);
+                    ip.setQuantidade(tr.getInt("quantidade"));
+                    ip.setPreco_unitario(tr.getDouble("preco_unitario"));
+                    lista.add(ip);
+                } if(lista.isEmpty()){
                     JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado!");
                 }
             fecharBanco();
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }
-        return pedidos;
+        return lista;
     }
-    public void pesquisarNomeCliente(Pedido p, Cliente c, Vendedor v, ItemPedido ip, Produto pr) throws Exception {
+    public ArrayList<ItemPedido> pesquisarNomeCliente(Cliente cliente) throws Exception {
+        ArrayList<ItemPedido> lista = new ArrayList<>();
         try {
             abrirBanco();
-            String query = "SELECT * FROM pedido p INNER JOIN cliente c ON p.id_cliente = c.id_cliente INNER JOIN vendedor v ON p.id_vendedor = v.id_vendedor INNER JOIN item_pedido ip ON p.id_pedido = ip.id_pedido INNER JOIN produto pr ON ip.id_produto = pr.id_produto WHERE c.nome LIKE CONCAT('%', ?, '%') ORDER BY p.id_pedido, pr.nome ";
+            String query = "SELECT p.id_pedido, p.data_pedido, p.valor_total, p.status_pedido, c.nome AS nome_cliente, v.nome AS nome_vendedor, pr.nome AS nome_produto, ip.quantidade, ip.preco_unitario FROM pedido p INNER JOIN cliente c ON p.id_cliente = c.id_cliente INNER JOIN vendedor v ON p.id_vendedor = v.id_vendedor INNER JOIN item_pedido ip ON p.id_pedido = ip.id_pedido INNER JOIN produto pr ON ip.id_produto = pr.id_produto WHERE c.nome LIKE CONCAT('%', ?, '%') ORDER BY p.id_pedido, pr.nome";
             pst = con.prepareStatement(query);
-            pst.setString(1, c.getNome());
+            pst.setString(1, cliente.getNome());
             ResultSet tr = pst.executeQuery();
-            if (tr.next()) {
                 while (tr.next()){
-                    c.setNome(tr.getString("c.nome"));
-                    v.setNome(tr.getString("v.nome"));
-                    p.setData_pedido(tr.getString("p.data_pedido"));
-                    p.setValor_total(tr.getDouble("p.valor_total"));
-                    p.setStatus_pedido(tr.getString("status_pedido"));
-                    pr.setNome(tr.getString("pr.nome"));
-                    ip.setQuantidade(tr.getInt("ip.quantidade"));
-                    ip.setPreco_unitario(tr.getDouble("ip.preco_unitario"));
+                    Cliente c = new Cliente();
+                    c.setNome(tr.getString("nome_cliente"));
+                    Vendedor v = new Vendedor();
+                    v.setNome(tr.getString("nome_vendedor"));
+                    ItemPedido ip = new ItemPedido();
+                    ip.setNome(tr.getString("nome_produto"));
+                    ip.setId_pedido(tr.getInt("id_pedido"));
+                    ip.setData_pedido(tr.getString("data_pedido"));
+                    ip.setValor_total(tr.getDouble("valor_total"));
+                    ip.setStatus_pedido(tr.getString("status_pedido"));
+                    ip.setCliente(c);
+                    ip.setVendedor(v);
+                    ip.setQuantidade(tr.getInt("quantidade"));
+                    ip.setPreco_unitario(tr.getDouble("preco_unitario"));
+                    lista.add(ip);
+                } if(lista.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado!");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado!");
-            }
             fecharBanco();
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }
+        return lista;
     }
-    public void pesquisarNomeVendedor(Pedido p, Cliente c, Vendedor v, ItemPedido ip, Produto pr) throws Exception {
+    public ArrayList<ItemPedido> pesquisarNomeVendedor(Vendedor vendedor) throws Exception {
+        ArrayList<ItemPedido> lista = new ArrayList<>();
         try {
             abrirBanco();
-            String query = "SELECT * FROM pedido p INNER JOIN cliente c ON p.id_cliente = c.id_cliente INNER JOIN vendedor v ON p.id_vendedor = v.id_vendedor INNER JOIN item_pedido ip ON p.id_pedido = ip.id_pedido INNER JOIN produto pr ON ip.id_produto = pr.id_produto WHERE v.nome LIKE CONCAT('%', ?, '%') ORDER BY p.id_pedido, pr.nome";
+            String query = "SELECT p.id_pedido, p.data_pedido, p.valor_total, p.status_pedido, c.nome AS nome_cliente, v.nome AS nome_vendedor, pr.nome AS nome_produto, ip.quantidade, ip.preco_unitario FROM pedido p INNER JOIN cliente c ON p.id_cliente = c.id_cliente INNER JOIN vendedor v ON p.id_vendedor = v.id_vendedor INNER JOIN item_pedido ip ON p.id_pedido = ip.id_pedido INNER JOIN produto pr ON ip.id_produto = pr.id_produto WHERE v.nome LIKE CONCAT('%', ?, '%') ORDER BY p.id_pedido, pr.nome";
             pst = con.prepareStatement(query);
-            pst.setString(1, v.getNome());
+            pst.setString(1, vendedor.getNome());
             ResultSet tr = pst.executeQuery();
-            if (tr.next()) {
                 while (tr.next()){
-                    c.setNome(tr.getString("c.nome"));
-                    v.setNome(tr.getString("v.nome"));
-                    p.setData_pedido(tr.getString("p.data_pedido"));
-                    p.setValor_total(tr.getDouble("p.valor_total"));
-                    p.setStatus_pedido(tr.getString("status_pedido"));
-                    pr.setNome(tr.getString("pr.nome"));
-                    ip.setQuantidade(tr.getInt("ip.quantidade"));
-                    ip.setPreco_unitario(tr.getDouble("ip.preco_unitario"));
+                    Cliente c = new Cliente();
+                    c.setNome(tr.getString("nome_cliente"));
+                    Vendedor v = new Vendedor();
+                    v.setNome(tr.getString("nome_vendedor"));
+                    ItemPedido ip = new ItemPedido();
+                    ip.setNome(tr.getString("nome_produto"));
+                    ip.setId_pedido(tr.getInt("id_pedido"));
+                    ip.setData_pedido(tr.getString("data_pedido"));
+                    ip.setValor_total(tr.getDouble("valor_total"));
+                    ip.setStatus_pedido(tr.getString("status_pedido"));
+                    ip.setCliente(c);
+                    ip.setVendedor(v);
+                    ip.setQuantidade(tr.getInt("quantidade"));
+                    ip.setPreco_unitario(tr.getDouble("preco_unitario"));
+                    lista.add(ip);
+                } if(lista.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado!");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado!");
-            }
             fecharBanco();
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }
+        return lista;
     }
-    public void pesquisarStatusPedido(Pedido p, Cliente c, Vendedor v, ItemPedido ip, Produto pr) throws Exception {
+    public ArrayList<ItemPedido> pesquisarStatusPedido(Pedido pedido) throws Exception {
+        ArrayList<ItemPedido> lista = new ArrayList<>();
         try {
             abrirBanco();
-            String query = "SELECT * FROM pedido p INNER JOIN cliente c ON p.id_cliente = c.id_cliente INNER JOIN vendedor v ON p.id_vendedor = v.id_vendedor INNER JOIN item_pedido ip ON p.id_pedido = ip.id_pedido INNER JOIN produto pr ON ip.id_produto = pr.id_produto WHERE p.status_pedido LIKE CONCAT('%', ?, '%') ORDER BY p.id_pedido, pr.nome";
+            String query = "SELECT p.id_pedido, p.data_pedido, p.valor_total, p.status_pedido, c.nome AS nome_cliente, v.nome AS nome_vendedor, pr.nome AS nome_produto, ip.quantidade, ip.preco_unitario FROM pedido p INNER JOIN cliente c ON p.id_cliente = c.id_cliente INNER JOIN vendedor v ON p.id_vendedor = v.id_vendedor INNER JOIN item_pedido ip ON p.id_pedido = ip.id_pedido INNER JOIN produto pr ON ip.id_produto = pr.id_produto WHERE p.status_pedido LIKE CONCAT('%', ?, '%') ORDER BY p.id_pedido, pr.nome";
             pst = con.prepareStatement(query);
-            pst.setString(1, p.getStatus_pedido());
+            pst.setString(1, pedido.getStatus_pedido());
             ResultSet tr = pst.executeQuery();
-            if (tr.next()) {
                 while (tr.next()){
-                    c.setNome(tr.getString("c.nome"));
-                    v.setNome(tr.getString("v.nome"));
-                    p.setData_pedido(tr.getString("p.data_pedido"));
-                    p.setValor_total(tr.getDouble("p.valor_total"));
-                    p.setStatus_pedido(tr.getString("status_pedido"));
-                    pr.setNome(tr.getString("pr.nome"));
-                    ip.setQuantidade(tr.getInt("ip.quantidade"));
-                    ip.setPreco_unitario(tr.getDouble("ip.preco_unitario"));
+                    Cliente c = new Cliente();
+                    c.setNome(tr.getString("nome_cliente"));
+                    Vendedor v = new Vendedor();
+                    v.setNome(tr.getString("nome_vendedor"));
+                    ItemPedido ip = new ItemPedido();
+                    ip.setNome(tr.getString("nome_produto"));
+                    ip.setId_pedido(tr.getInt("id_pedido"));
+                    ip.setData_pedido(tr.getString("data_pedido"));
+                    ip.setValor_total(tr.getDouble("valor_total"));
+                    ip.setStatus_pedido(tr.getString("status_pedido"));
+                    ip.setCliente(c);
+                    ip.setVendedor(v);
+                    ip.setQuantidade(tr.getInt("quantidade"));
+                    ip.setPreco_unitario(tr.getDouble("preco_unitario"));
+                    lista.add(ip);
+                } if(lista.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado!");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado!");
-            }
             fecharBanco();
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }
+        return lista;
     }
-    public void pesquisarData(Pedido p, Cliente c, Vendedor v, ItemPedido ip, Produto pr) throws Exception {
+    public ArrayList<ItemPedido> pesquisarTudo() throws Exception {
+        ArrayList<ItemPedido> lista = new ArrayList<>();
         try {
             abrirBanco();
-            String query = "SELECT * FROM pedido p INNER JOIN cliente c ON p.id_cliente = c.id_cliente INNER JOIN vendedor v ON p.id_vendedor = v.id_vendedor INNER JOIN item_pedido ip ON p.id_pedido = ip.id_pedido INNER JOIN produto pr ON ip.id_produto = pr.id_produto WHERE p.data_pedido BETWEEN ? AND ?  ORDER BY p.id_pedido, pr.nome";
+            String query = "SELECT p.id_pedido, p.data_pedido, p.valor_total, p.status_pedido, c.nome AS nome_cliente, v.nome AS nome_vendedor, pr.nome AS nome_produto, ip.quantidade, ip.preco_unitario FROM pedido p INNER JOIN cliente c ON p.id_cliente = c.id_cliente INNER JOIN vendedor v ON p.id_vendedor = v.id_vendedor INNER JOIN item_pedido ip ON p.id_pedido = ip.id_pedido INNER JOIN produto pr ON ip.id_produto = pr.id_produto ORDER BY p.id_pedido, pr.nome";
             pst = con.prepareStatement(query);
-            pst.setString(1, p.getData_pedido());
-            pst.setString(2, p.getData_pedido());
             ResultSet tr = pst.executeQuery();
-            if (tr.next()) {
                 while (tr.next()){
-                    c.setNome(tr.getString("c.nome"));
-                    v.setNome(tr.getString("v.nome"));
-                    p.setData_pedido(tr.getString("p.data_pedido"));
-                    p.setValor_total(tr.getDouble("p.valor_total"));
-                    p.setStatus_pedido(tr.getString("status_pedido"));
-                    pr.setNome(tr.getString("pr.nome"));
-                    ip.setQuantidade(tr.getInt("ip.quantidade"));
-                    ip.setPreco_unitario(tr.getDouble("ip.preco_unitario"));
+                    Cliente c = new Cliente();
+                    c.setNome(tr.getString("nome_cliente"));
+                    Vendedor v = new Vendedor();
+                    v.setNome(tr.getString("nome_vendedor"));
+                    ItemPedido ip = new ItemPedido();
+                    ip.setNome(tr.getString("nome_produto"));
+                    ip.setId_pedido(tr.getInt("id_pedido"));
+                    ip.setData_pedido(tr.getString("data_pedido"));
+                    ip.setValor_total(tr.getDouble("valor_total"));
+                    ip.setStatus_pedido(tr.getString("status_pedido"));
+                    ip.setCliente(c);
+                    ip.setVendedor(v);
+                    ip.setQuantidade(tr.getInt("quantidade"));
+                    ip.setPreco_unitario(tr.getDouble("preco_unitario"));
+                    lista.add(ip);
+                } if(lista.isEmpty()){
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado!");
                 }
-            } else {
-                JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado!");
-            }
             fecharBanco();
         } catch (Exception e) {
             System.out.println("Erro: " + e.getMessage());
         }
+        return lista;
     }
 }
 

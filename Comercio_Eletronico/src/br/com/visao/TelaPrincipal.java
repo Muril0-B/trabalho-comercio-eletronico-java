@@ -4,6 +4,27 @@
  */
 package br.com.visao;
 
+import br.com.visao.vendedor.VendedorRemover;
+import br.com.visao.vendedor.VendedorListar;
+import br.com.visao.vendedor.VendedorAlterar;
+import br.com.visao.vendedor.VendedorAdicionar;
+import br.com.visao.pedido.PedidoRemover;
+import br.com.visao.pedido.PedidoListar;
+import br.com.visao.pedido.PedidoAlterar;
+import br.com.visao.pedido.PedidoAdicionar;
+import br.com.visao.pagamento.PagamentoRemover;
+import br.com.visao.pagamento.PagamentoListar;
+import br.com.visao.pagamento.PagamentoAlterar;
+import br.com.visao.pagamento.PagamentoAdicionar;
+import br.com.visao.cliente.ClienteRemover;
+import br.com.visao.cliente.ClienteListar;
+import br.com.visao.cliente.ClienteAlterar;
+import br.com.visao.cliente.ClienteAdicionar;
+import br.com.visao.produto.ProdutoAdicionar;
+import br.com.visao.produto.ProdutoAlterar;
+import br.com.visao.produto.ProdutoListar;
+import br.com.visao.produto.ProdutoRemover;
+
 /**
  *
  * @author muril

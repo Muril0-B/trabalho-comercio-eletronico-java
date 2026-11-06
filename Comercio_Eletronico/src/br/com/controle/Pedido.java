@@ -7,6 +7,10 @@ public class Pedido extends Produto{
     private double valor_total;
     private String status_pedido;
     private String data_pedido;
+    private Cliente cliente;
+    private Vendedor vendedor;
+
+
 
     public int getId_pedido() {
         return id_pedido;
@@ -56,6 +60,17 @@ public class Pedido extends Produto{
         this.data_pedido = data_pedido;
     }
     
-    
-    
+    public Cliente getCliente() {
+        return cliente;
+    }
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
+    public void setVendedor(Vendedor vendedor) {
+        this.vendedor = vendedor;
+    } 
 }

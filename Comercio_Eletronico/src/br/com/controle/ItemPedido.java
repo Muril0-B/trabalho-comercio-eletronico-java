@@ -7,6 +7,24 @@ public class ItemPedido extends Pedido{
     private int id_produto;
     private int quantidade;
     private double preco_unitario;
+    private Pedido pedido;
+
+    public Pedido getPedido() {
+        return pedido;
+    }
+
+    public void setPedido(Pedido pedido) {
+        this.pedido = pedido;
+    }
+
+    public Produto getProduto() {
+        return produto;
+    }
+
+    public void setProduto(Produto produto) {
+        this.produto = produto;
+    }
+    private Produto produto;
 
     public int getId_item() {
         return id_item;

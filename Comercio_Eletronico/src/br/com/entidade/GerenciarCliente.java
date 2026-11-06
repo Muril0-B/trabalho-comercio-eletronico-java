@@ -78,11 +78,13 @@ public class GerenciarCliente extends DAO {
             ResultSet tr = pst.executeQuery();
 
             if (tr.next()) {
+                c.setId_cliente(tr.getInt("id_cliente"));
                 c.setCpf_cnpj(tr.getString("cpf_cnpj"));
                 c.setNome(tr.getString("nome"));
                 c.setEmail(tr.getString("email"));
                 c.setTelefone(tr.getString("telefone"));
                 c.setEndereco(tr.getString("endereco"));
+                c.setData_cadastro("data_cadastro");
             } else {
                 JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado!");
             }
@@ -108,13 +110,13 @@ public class GerenciarCliente extends DAO {
 
             while (tr.next()) {
                 Cliente c = new Cliente();
-
+                c.setId_cliente(tr.getInt("id_cliente"));
                 c.setCpf_cnpj(tr.getString("cpf_cnpj"));
                 c.setNome(tr.getString("nome"));
                 c.setEmail(tr.getString("email"));
                 c.setTelefone(tr.getString("telefone"));
                 c.setEndereco(tr.getString("endereco"));
-
+                c.setData_cadastro("data_cadastro");
                 clientes.add(c);
             }
 

@@ -1,4 +1,3 @@
-
 package br.com.controle;
 
 public class Cliente {
@@ -9,6 +8,7 @@ public class Cliente {
     private String email;
     private String endereco;
     private String telefone;
+    private String data_cadastro;
 
     public int getId_cliente() {
         return id_cliente;
@@ -56,5 +56,13 @@ public class Cliente {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getData_cadastro() {
+        return data_cadastro;
+    }
+
+    public void setData_cadastro(String data_cadastro) {
+        this.data_cadastro = data_cadastro;
     }
 }

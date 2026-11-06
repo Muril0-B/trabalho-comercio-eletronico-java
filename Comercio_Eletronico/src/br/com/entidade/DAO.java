@@ -18,7 +18,7 @@ public class DAO {
             Class.forName("com.mysql.cj.jdbc.Driver");
             String url = "jdbc:mysql://localhost:3306/mercadinho";
             String user = "root";
-            String senha = "";
+            String senha = "Murilo2007!@";
             con = DriverManager.getConnection(url, user, senha);
             System.out.println("Conectado ao banco de dados!");
         } catch (ClassNotFoundException ex) {

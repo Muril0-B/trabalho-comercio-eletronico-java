@@ -9,6 +9,7 @@ import javax.swing.JOptionPane;
 public class GerenciarProduto extends DAO {
 
     public void inserir(Produto p) throws Exception {
+        
         abrirBanco();
         // verifica se ja existe um produto com o mesmo nome
         String existe = "select id_produto, nome FROM produto where nome=?";
@@ -27,10 +28,12 @@ public class GerenciarProduto extends DAO {
             pst.execute();
             JOptionPane.showMessageDialog(null, "Produto Inserido com sucesso!");
         }
+        
         fecharBanco();
     }
 
     public void deletarProduto(Produto p) throws Exception {
+        
         abrirBanco();
         try {
             String query = "delete from produto where id_produto=?";
@@ -74,6 +77,7 @@ public class GerenciarProduto extends DAO {
     public ArrayList<Produto> pesquisarTudo() throws Exception {
         ArrayList<Produto> produtos = new ArrayList<Produto>();
         try {
+            
             abrirBanco();
             String query = "select * FROM produto";
             pst = (PreparedStatement) con.prepareStatement(query);
@@ -88,6 +92,7 @@ public class GerenciarProduto extends DAO {
                 p.setEstoque(tr.getInt("estoque"));
                 produtos.add(p);
             }
+            
             fecharBanco();
         } catch (Exception e) {
             System.out.println("Erro " + e.getMessage());
@@ -96,6 +101,7 @@ public class GerenciarProduto extends DAO {
     }
 
     public void editarProduto(Produto p) throws Exception {
+        
         abrirBanco();
         String query = "UPDATE produto set nome = ?, descricao = ?, preco = ?, estoque = ? where id_produto = ?";
         pst = (PreparedStatement) con.prepareStatement(query);
@@ -106,19 +112,7 @@ public class GerenciarProduto extends DAO {
         pst.setInt(5, p.getId_produto());
         pst.executeUpdate();
         JOptionPane.showMessageDialog(null, "Produto Alterado com sucesso!");
+        
         fecharBanco();
-    }
-
-    // Usado pelo pedido: da baixa no estoque somente se houver quantidade suficiente
-    public boolean baixarEstoque(int idProduto, int quantidade) throws Exception {
-        abrirBanco();
-        String query = "UPDATE produto SET estoque = estoque - ? WHERE id_produto = ? AND estoque >= ?";
-        pst = (PreparedStatement) con.prepareStatement(query);
-        pst.setInt(1, quantidade);
-        pst.setInt(2, idProduto);
-        pst.setInt(3, quantidade);
-        int linhas = pst.executeUpdate();
-        fecharBanco();
-        return linhas > 0;
     }
 }
